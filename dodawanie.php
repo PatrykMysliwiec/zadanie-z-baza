@@ -16,6 +16,13 @@
         <form id="formularz" action="dodawanie.php" method="POST">
             <h3>Dodawanie ocen do tabeli jpolski</h3>
             <div class="dane">
+                <label for="">Wybierz tabele</label>
+                <select name="" id="">
+                    <option value="matematyka">Matematyka</option>
+                    <option value="jpolski">J. Polski</option>
+                </select>
+            </div>
+            <div class="dane">
                 <label for="">Dodaj imię</label>
                 <input type="text" name="name" id="name">
             </div>
@@ -38,6 +45,7 @@
             $ocena = $_POST['grade'];
 
             $dodajDane = "INSERT INTO `jpolski`(`imie`, `nazwisko`, `ocena`) VALUES ('$imie','$nazwisko','$ocena')";
+            $dodajDane2 = "INSERT INTO `matematyka`(`imie`, `nazwisko`, `ocena`) VALUES ('$imie','$nazwisko','$ocena')";
 
             mysqli_query($polaczenie, $dodajDane);
 
