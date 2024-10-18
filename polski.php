@@ -12,33 +12,34 @@
     <header>
         <h1>Dziennik</h1>
     </header>
-    <main>
+    <main class="zawijanie">
         <h2>J. Polski</h2>
         <section>
             <?php
             $polaczenie = mysqli_connect('localhost', 'root', '', 'szkola');
 
-            $dane = "SELECT * FROM uczen";
+            $dane = "SELECT * FROM jpolski";
 
             $wynik = mysqli_query($polaczenie, $dane);
 
-            while ($uczen = mysqli_fetch_assoc($wynik)) {
-                echo "<div class='bloczki'> Nr. " . $uczen['ID'] . "<br>Imię: " . $uczen['Imie'] . "<br>Nazwisko: " . $uczen['Nazwisko'] . "<br>Ocena: " . $uczen['Ocena'] . "</div>";
+            while ($jpolski = mysqli_fetch_assoc($wynik)) {
+                echo "<div class='bloczki'> Nr. " . $jpolski['ID'] . "<br>Imię: " . $jpolski['imie'] . "<br>Nazwisko: " . $jpolski['nazwisko'] . "<br>Ocena: " . $jpolski['ocena'] . "</div>";
             }
             mysqli_close($polaczenie);
             ?>
         </section>
     </main>
     <aside>
+        <h2>Nawigacja</h2>
         <ul>
             <li>
-                Matematyka
+                <a href="./index.php">Matematyka</a>
             </li>
             <li>
                 J. Polski
             </li>
             <li>
-                J. Angielski
+                <a href="./dodawanie.php">Dodawanie ocen</a>
             </li>
         </ul>
     </aside>

@@ -12,7 +12,7 @@
     <header>
         <h1>Dziennik</h1>
     </header>
-    <main>
+    <main class="zawijanie">
         <h2>Matematyka</h2>
         <table>
             <tr>
@@ -24,12 +24,12 @@
             <?php
             $polaczenie = mysqli_connect('localhost', 'root', '', 'szkola');
 
-            $dane = "SELECT * FROM uczen";
+            $dane = "SELECT * FROM matematyka";
 
             $wynik = mysqli_query($polaczenie, $dane);
 
-            while ($uczen = mysqli_fetch_assoc($wynik)) {
-                echo "<tr><td>" . $uczen['ID'] . "</td><td>" . $uczen['Imie'] . "</td><td>" . $uczen['Nazwisko'] . "</td><td>" . $uczen['Ocena'] . "</td></tr>";
+            while ($matematyka = mysqli_fetch_assoc($wynik)) {
+                echo "<tr><td>" . $matematyka['ID'] . "</td><td>" . $matematyka['Imie'] . "</td><td>" . $matematyka['Nazwisko'] . "</td><td>" . $matematyka['Ocena'] . "</td></tr>";
             }
 
             mysqli_close($polaczenie);
@@ -37,15 +37,16 @@
         </table>
     </main>
     <aside>
+        <h2>Nawigacja</h2>
         <ul>
             <li>
                 Matematyka
             </li>
             <li>
-                J. Polski
+                <a href="./polski.php">J. Polski</a>
             </li>
             <li>
-                J. Angielski
+                <a href="./dodawanie.php">Dodawanie ocen</a>
             </li>
         </ul>
     </aside>

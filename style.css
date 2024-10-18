@@ -25,7 +25,11 @@ main {
     align-content: start;
 }
 
-main h2 {
+.zawijanie {
+    overflow: scroll;
+}
+
+h2 {
     margin-top: 15px;
 }
 
@@ -48,6 +52,16 @@ aside li {
     color: white;
 }
 
+aside a {
+    text-decoration: none;
+    color: white;
+}
+
+aside a:hover {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
 footer {
     width: 100%;
     height: 60px;
@@ -56,6 +70,8 @@ footer {
     font-size: larger;
     display: grid;
     align-content: center;
+    margin-top: auto;
+    position: static;
 }
 
 footer a {
@@ -69,6 +85,7 @@ table {
     padding: 5px;
     border-collapse: collapse;
     text-align: end;
+    margin-bottom: 15px;
 }
 
 table th {
@@ -89,6 +106,8 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
 }
 
 .bloczki {
@@ -98,4 +117,17 @@ section {
     color: #E4C59E;
     padding: 5px;
     margin: 5px;
+    line-height: 25px;
 }
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.dane {
+    display: flex;
+    flex-direction: column;
+}
+
+
