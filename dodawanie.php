@@ -14,12 +14,23 @@
     </header>
     <main>
         <form id="formularz" action="dodawanie.php" method="POST">
-            <h3>Dodawanie ocen do tabeli jpolski</h3>
+            <h3>Dodawanie ocen do bazy</h3>
             <div class="dane">
                 <label for="">Wybierz tabele</label>
-                <select name="" id="">
-                    <option value="matematyka">Matematyka</option>
-                    <option value="jpolski">J. Polski</option>
+                <select name="tabela" id="">
+                    <?php
+                    $polaczenie = mysqli_connect('localhost', 'root', '', 'szkola');
+
+                    $zapytanie = "SHOW TABLES";
+
+                    $result = mysqli_query($polaczenie, $zapytanie);
+
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo '<option value="' . $row['Tables_in_szkola'] . '">' . $row['Tables_in_szkola'] . '</option>';
+                    }
+
+                    mysqli_close($polaczenie);
+                    ?>
                 </select>
             </div>
             <div class="dane">
@@ -34,22 +45,25 @@
                 <label for="">Dodaj ocene</label>
                 <input type="number" name="grade" id="grade">
             </div>
-            <button value="dodaj">Prześlij dane do bazy</button>
+            <button value="dodaj" name="submit" type="sybmit">Prześlij dane do bazy</button>
         </form>
         <?php
         if (isset($_POST['name']) && isset($_POST['lastname']) && isset($_POST['grade'])) {
             $polaczenie = mysqli_connect('localhost', 'root', '', 'szkola');
 
+            
             $imie = $_POST['name'];
             $nazwisko = $_POST['lastname'];
             $ocena = $_POST['grade'];
+            $tabela = $_POST['tabela'];
 
-            $dodajDane = "INSERT INTO `jpolski`(`imie`, `nazwisko`, `ocena`) VALUES ('$imie','$nazwisko','$ocena')";
-            $dodajDane2 = "INSERT INTO `matematyka`(`imie`, `nazwisko`, `ocena`) VALUES ('$imie','$nazwisko','$ocena')";
+            $dodajDane = "INSERT INTO `$tabela`(`imie`, `nazwisko`, `ocena`) VALUES ('$imie','$nazwisko','$ocena')";
 
-            mysqli_query($polaczenie, $dodajDane);
-
-            echo "<p class='wynik'>Dodano dane do bazy</p>";
+            if (mysqli_query($polaczenie, $dodajDane)) {
+                echo "<p class='wynik'>Dodano dane do tabeli: $tabela</p>";
+            } else {
+                echo "<p class='wynik'>Błąd:" . mysqli_error($polaczenie) . "</p>";
+            }
 
             mysqli_close($polaczenie);
         }

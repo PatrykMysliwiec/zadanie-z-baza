@@ -23,7 +23,7 @@
             $wynik = mysqli_query($polaczenie, $dane);
 
             while ($jpolski = mysqli_fetch_assoc($wynik)) {
-                echo "<div class='bloczki'> Nr. " . $jpolski['ID'] . "<br>Imię: " . $jpolski['imie'] . "<br>Nazwisko: " . $jpolski['nazwisko'] . "<br>Ocena: " . $jpolski['ocena'] . "</div>";
+                echo "<div class='bloczki'> Nr. " . $jpolski['ID'] . "<br>Imię: " . $jpolski['Imie'] . "<br>Nazwisko: " . $jpolski['Nazwisko'] . "<br>Ocena: " . $jpolski['Ocena'] . "</div>";
             }
             mysqli_close($polaczenie);
             ?>
