@@ -30,7 +30,8 @@ main {
 }
 
 h2 {
-    margin-top: 15px;
+    padding: 15px;
+    text-align: center;
 }
 
 aside {
@@ -38,13 +39,11 @@ aside {
     height: 400px;
     float: left;
     background-color: #803D3B;
-    display: grid;
-    align-content: start;
 }
 
 aside ul {
     font-size: 20px;
-    margin-top: 15px;
+    margin: 15px 10px;
 }
 
 aside li {
@@ -120,14 +119,76 @@ section {
     line-height: 25px;
 }
 
+.obecnastrona {
+    text-decoration: underline;
+}
+
 form {
     display: flex;
     flex-direction: column;
+    background-color: #803D3B;
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid #322C2B;
+}
+
+form h3 {
+    color: #ffdcb1;
+    font-weight: bold;
+    font-size: 30px;
+    padding: 10px;
 }
 
 .dane {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 350px;
 }
 
+.dane label {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 0 5px;
+}
 
+.dane input {
+    padding: 5px 10px;
+    margin: 10px 0;
+    width: 100%;
+}
+
+.dane select {
+    padding: 5px 10px;
+    margin: 10px 0;
+    width: 200px;
+}
+
+.dane select:focus, 
+.dane input:focus {
+    border: 2px solid #322C2B;
+    outline: none;
+} 
+
+form button {
+    padding: 5px 10px;
+    border: 2px solid #322C2B;
+    background: #AF8260;
+    font-weight: bold;
+    font-size: 16px;
+    color: #322C2B;
+}
+
+form button:hover {
+    cursor: pointer;
+    background: #E4C59E;
+}
+
+.wynik {
+    text-align: center;
+    color: #322C2B;
+    font-size: 24px;
+    margin: 8px 0;
+    font-weight: bold;
+}

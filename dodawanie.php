@@ -16,7 +16,7 @@
         <form id="formularz" action="dodawanie.php" method="POST">
             <h3>Dodawanie ocen do bazy</h3>
             <div class="dane">
-                <label for="">Wybierz tabele</label>
+                <label for="">Tabela:</label>
                 <select name="tabela" id="">
                     <?php
                     $polaczenie = mysqli_connect('localhost', 'root', '', 'szkola');
@@ -34,16 +34,13 @@
                 </select>
             </div>
             <div class="dane">
-                <label for="">Dodaj imię</label>
-                <input type="text" name="name" id="name">
+                <input type="text" name="name" id="name" placeholder="Imie">
             </div>
             <div class="dane">
-                <label for="">Dodaj nazwisko</label>
-                <input type="text" name="lastname" id="lastname">
+                <input type="text" name="lastname" id="lastname" placeholder="Nazwisko">
             </div>
             <div class="dane">
-                <label for="">Dodaj ocene</label>
-                <input type="number" name="grade" id="grade">
+                <input type="number" name="grade" id="grade" placeholder="Ocena">
             </div>
             <button value="dodaj" name="submit" type="sybmit">Prześlij dane do bazy</button>
         </form>
@@ -51,7 +48,7 @@
         if (isset($_POST['name']) && isset($_POST['lastname']) && isset($_POST['grade'])) {
             $polaczenie = mysqli_connect('localhost', 'root', '', 'szkola');
 
-            
+
             $imie = $_POST['name'];
             $nazwisko = $_POST['lastname'];
             $ocena = $_POST['grade'];
@@ -70,18 +67,20 @@
         ?>
     </main>
     <aside>
-        <h2>Nawigacja</h2>
-        <ul>
-            <li>
-                <a href="./index.php">Matematyka</a>
-            </li>
-            <li>
-                <a href="./polski.php">J. Polski</a>
-            </li>
-            <li>
-                Dodawanie ocen
-            </li>
-        </ul>
+        <nav>
+            <h2>Nawigacja</h2>
+            <ul>
+                <li>
+                    <a href="./index.php">Matematyka</a>
+                </li>
+                <li>
+                    <a href="./polski.php">J. Polski</a>
+                </li>
+                <li class="obecnastrona">
+                    <a href="./dodawanie.php">Dodawanie ocen</a>
+                </li>
+            </ul>
+        </nav>
     </aside>
     <footer>
         <a href="https://zsz.bobowa.pl/" target="blank">zsz.bobowa.pl</a>

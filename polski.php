@@ -30,18 +30,20 @@
         </section>
     </main>
     <aside>
-        <h2>Nawigacja</h2>
-        <ul>
-            <li>
-                <a href="./index.php">Matematyka</a>
-            </li>
-            <li>
-                J. Polski
-            </li>
-            <li>
-                <a href="./dodawanie.php">Dodawanie ocen</a>
-            </li>
-        </ul>
+        <nav>
+            <h2>Nawigacja</h2>
+            <ul>
+                <li>
+                    <a href="./index.php">Matematyka</a>
+                </li>
+                <li class="obecnastrona">
+                    <a href="./polski.php">J. Polski</a>
+                </li>
+                <li>
+                    <a href="./dodawanie.php">Dodawanie ocen</a>
+                </li>
+            </ul>
+        </nav>
     </aside>
     <footer>
         <a href="https://zsz.bobowa.pl/" target="blank">zsz.bobowa.pl</a>
